@@ -3,6 +3,10 @@ module Display
         "Welcome to Mastermind! \n\n"
     end
 
+    def display_role_prompt
+        "Enter your name. Then, choose whether to be the Coder or Decoder:"
+    end
+
     def display_role(role)
         "You are the #{role}!"
     end
