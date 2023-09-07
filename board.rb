@@ -2,7 +2,7 @@ class Board
     attr_accessor :code, :guess, :hint, :turns
 
     def initialize
-        @code = ["", "", "", ""]
+        @code = ["R", "O", "Y", "G"]
         @guess = ["", "", "", ""]
         @hint = ["", "", "", ""]
         @turns = 12
