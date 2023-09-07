@@ -13,9 +13,7 @@ class Game
 
     def play
         game_set_up
-        board.show
         player_turns
-        conclusion
     end
 
     def create_player
@@ -32,3 +30,16 @@ class Game
         board.update_board(guess[2], gets.chomp.to_s)
         board.update_board(guess[3], gets.chomp.to_s)
     end
+
+    def game_set_up
+        puts display_intro
+    end
+
+    def player_turns
+        until out_of_turns?
+            turn
+            break if guess_correct?
+        end
+    end
+
+end
