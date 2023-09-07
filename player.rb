@@ -7,10 +7,10 @@ class Player
     end
 end
 
-class Human > Player
+class Human < Player
     #
 end
 
-class Computer > Player
+class Computer < Player
     #
 end

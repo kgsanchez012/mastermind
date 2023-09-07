@@ -18,6 +18,7 @@ class Board
 
     def valid_move?(color)
         if not code.include?(color)
+        end
     end
 
     def out_of_turns?
