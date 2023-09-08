@@ -22,7 +22,7 @@ class Board
     end
 
     def out_of_turns?
-        return true if turns == 0
+        return true if turns == -1
     end
 
     def guess_correct?

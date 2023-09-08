@@ -13,7 +13,10 @@ class Game
 
   def play
     game_set_up
+    Board.new
     create_player
+    generate_code
+    puts board.code
     puts display_decoder_start
     player_turns
   end
@@ -26,11 +29,16 @@ class Game
     puts display_role(role)
   end
 
+  def generate_code
+    4.times do |slot|
+      board.set_code(slot, ["R", "O", "Y", "G", "B", "V"].sample)
+    end
+  end
+  
   def turn
-    board.update_board(board.guess[0], gets.chomp.to_s)
-    board.update_board(board.guess[1], gets.chomp.to_s)
-    board.update_board(board.guess[2], gets.chomp.to_s)
-    board.update_board(board.guess[3], gets.chomp.to_s)
+    4.times do |slot|
+      board.update_board(slot, gets.chomp.to_s)
+    end
   end
 
   def game_set_up
@@ -40,9 +48,11 @@ class Game
   def player_turns
     until board.out_of_turns?
       turn
-      puts display_feedback(board.guess, board.hint, board.turns)
       board.turns -= 1
-      break if guess_correct?
+      puts display_feedback(board.guess, board.hint, board.turns)
+      puts board.code
+      puts board.guess
+      break if board.guess_correct?
     end
   end
 end
